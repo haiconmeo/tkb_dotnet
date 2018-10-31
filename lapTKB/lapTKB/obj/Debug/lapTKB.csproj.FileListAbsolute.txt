@@ -18,3 +18,23 @@ D:\thuchanhcshare\New folder\lapTKB\lapTKB\bin\Debug\lapTKB.pdb
 D:\thuchanhcshare\New folder\lapTKB\lapTKB\obj\Debug\lapTKB.add_phong_2.resources
 D:\thuchanhcshare\New folder\lapTKB\lapTKB\obj\Debug\lapTKB.exe
 D:\thuchanhcshare\New folder\lapTKB\lapTKB\obj\Debug\lapTKB.pdb
+D:\tkb_dotnet\lapTKB\lapTKB\bin\Debug\lapTKB.exe.config
+D:\tkb_dotnet\lapTKB\lapTKB\bin\Debug\lapTKB.exe
+D:\tkb_dotnet\lapTKB\lapTKB\bin\Debug\lapTKB.pdb
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.csprojAssemblyReference.cache
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_gv.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_gv_2.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_mon.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.Add_mon_2.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_nhom.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_nhom_2.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_phancong.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_phong.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.add_phong_2.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.Form1.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.Properties.Resources.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.csproj.GenerateResource.cache
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.csproj.CoreCompileInputs.cache
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.exe
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.pdb

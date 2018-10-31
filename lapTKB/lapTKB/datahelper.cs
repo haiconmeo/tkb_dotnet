@@ -23,8 +23,11 @@ namespace lapTKB
         }
         public void exuteNonQuery(string query)
         {
+
             SqlCommand cmd = new SqlCommand(query, this.cnn);
+            this.cnn.Open();
             cmd.ExecuteNonQuery();
+            this.cnn.Close();
         }
     }
 }

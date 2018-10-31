@@ -24,9 +24,10 @@ namespace lapTKB
         private void fgv_add_bt_Click(object sender, EventArgs e)
         {
             string cmd = "insert into teacher(TeacherName,TeacherSdt,TeacherHocvi,TeacherChuyenNganh) values ('"+
-                fgv_name_b.Text+"','"+fgv_sdt_tb.Text +"','"+fgv_hocvi_tb.Text +"','"+fgv_chuyennanh_tb+"')";
+                fgv_name_b.Text+"','"+fgv_sdt_tb.Text +"','"+fgv_hocvi_tb.Text +"','"+fgv_chuyennanh_tb.Text+"')";
             dh.exuteNonQuery(cmd);
             x();
+            this.Close();
         }
 
         private void fgv_cancel_bt_Click(object sender, EventArgs e)

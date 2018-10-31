@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.f1_show_b = new System.Windows.Forms.Button();
-            this.f1_add_b = new System.Windows.Forms.Button();
+            this.f1_quanly_b = new System.Windows.Forms.Button();
             this.f1_sort_b = new System.Windows.Forms.Button();
             this.f1_search_b = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -47,19 +47,19 @@
             this.f1_show_b.UseVisualStyleBackColor = true;
             this.f1_show_b.Click += new System.EventHandler(this.f1_show_b_Click);
             // 
-            // f1_add_b
+            // f1_quanly_b
             // 
-            this.f1_add_b.Location = new System.Drawing.Point(167, 48);
-            this.f1_add_b.Name = "f1_add_b";
-            this.f1_add_b.Size = new System.Drawing.Size(75, 23);
-            this.f1_add_b.TabIndex = 1;
-            this.f1_add_b.Text = "add ";
-            this.f1_add_b.UseVisualStyleBackColor = true;
-            this.f1_add_b.Click += new System.EventHandler(this.f1_add_b_Click);
+            this.f1_quanly_b.Location = new System.Drawing.Point(175, 48);
+            this.f1_quanly_b.Name = "f1_quanly_b";
+            this.f1_quanly_b.Size = new System.Drawing.Size(75, 23);
+            this.f1_quanly_b.TabIndex = 1;
+            this.f1_quanly_b.Text = "manage";
+            this.f1_quanly_b.UseVisualStyleBackColor = true;
+            this.f1_quanly_b.Click += new System.EventHandler(this.f1_add_b_Click);
             // 
             // f1_sort_b
             // 
-            this.f1_sort_b.Location = new System.Drawing.Point(466, 48);
+            this.f1_sort_b.Location = new System.Drawing.Point(326, 48);
             this.f1_sort_b.Name = "f1_sort_b";
             this.f1_sort_b.Size = new System.Drawing.Size(75, 23);
             this.f1_sort_b.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // f1_search_b
             // 
-            this.f1_search_b.Location = new System.Drawing.Point(663, 48);
+            this.f1_search_b.Location = new System.Drawing.Point(477, 48);
             this.f1_search_b.Name = "f1_search_b";
             this.f1_search_b.Size = new System.Drawing.Size(75, 23);
             this.f1_search_b.TabIndex = 3;
@@ -91,7 +91,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.f1_search_b);
             this.Controls.Add(this.f1_sort_b);
-            this.Controls.Add(this.f1_add_b);
+            this.Controls.Add(this.f1_quanly_b);
             this.Controls.Add(this.f1_show_b);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -103,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.Button f1_show_b;
-        private System.Windows.Forms.Button f1_add_b;
+        private System.Windows.Forms.Button f1_quanly_b;
         private System.Windows.Forms.Button f1_sort_b;
         private System.Windows.Forms.Button f1_search_b;
         private System.Windows.Forms.DataGridView dataGridView1;

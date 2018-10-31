@@ -13,6 +13,7 @@ namespace lapTKB
     public partial class add_gv : Form
     {
         datahelper dh;
+        string mssv;
         public add_gv()
         {
             InitializeComponent();
@@ -27,11 +28,11 @@ namespace lapTKB
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            f2_name_tb.Text = dataGridView1.SelectedRows[0].Cells["Teachername"].ToString();
-            f2_hocvi_tb.Text= dataGridView1.SelectedRows[0].Cells["TeacherHocvi"].ToString();
-            f2_sdt_tb.Text = dataGridView1.SelectedRows[0].Cells["TeacherStd"].ToString();
-            f2_chuyennghanh_tb.Text= dataGridView1.SelectedRows[0].Cells["TeacherChuyenNganh"].ToString();
-
+            f2_name_tb.Text = dataGridView1.SelectedRows[0].Cells["Teachername"].Value.ToString();
+            f2_hocvi_tb.Text= dataGridView1.SelectedRows[0].Cells["TeacherHocvi"].Value.ToString();
+            f2_sdt_tb.Text =  dataGridView1.SelectedRows[0].Cells["TeacherSdt"].Value.ToString();
+            f2_chuyennghanh_tb.Text= dataGridView1.SelectedRows[0].Cells["TeacherChuyenNganh"].Value.ToString();
+            mssv = dataGridView1.SelectedRows[0].Cells["TeacherID"].Value.ToString();
         }
         public void show()
         {
@@ -40,17 +41,18 @@ namespace lapTKB
         }
         private void f2_update_bt_Click(object sender, EventArgs e)
         {
-            string mssv = dataGridView1.SelectedRows[0].Cells["TeacherID"].ToString();
-            string cmd = "update teacher set TeacherName='"+f2_name_tb+"',TeacherSdt='"+f2_sdt_tb+"',TeacherHocvi='"+f2_hocvi_tb+"',TeacherChuyenNganh='"+f2_chuyennghanh_tb+"' where TeacherID='"+mssv+"'";
+            //string mssv = dataGridView1.SelectedRows[0].Cells["TeacherID"].Value.ToString();
+            string cmd = "update teacher set TeacherName='"+f2_name_tb.Text+"',TeacherSdt='"+f2_sdt_tb.Text+"',TeacherHocvi='"+f2_hocvi_tb.Text+"',TeacherChuyenNganh='"+f2_chuyennghanh_tb.Text+"' where TeacherID='"+mssv+"'";
             dh.exuteNonQuery(cmd);
-
+            show();
         }
 
         private void f2_delete_bt_Click(object sender, EventArgs e)
         {
-            string mssv = dataGridView1.SelectedRows[0].Cells["TeacherID"].ToString();
+            
             string cmd = "delete from teacher where TeacherID ='"+mssv+"'";
             dh.exuteNonQuery(cmd);
+            show();
         }
 
         private void f2_add_b_Click(object sender, EventArgs e)
