@@ -23,7 +23,7 @@ namespace lapTKB
 
         private void fphong_add_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "insert into phong(tenPhong,quanly,std) values ('" + fnhom_name_tb.Text + "','" + fnhom_quanly_tb.Text +"','"+fnhom_sdt_t.Text+"')";
+            string cmd = "insert into phong(tenPhong,quanly,std) values ('" + fphong_name_tb.Text + "','" + fphong_quanly_tb.Text +"','"+fphong_sdt_t.Text+"')";
             dh.exuteNonQuery(cmd);
             x();
         }

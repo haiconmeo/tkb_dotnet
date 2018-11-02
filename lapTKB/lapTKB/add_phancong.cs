@@ -18,8 +18,26 @@ namespace lapTKB
         {
             InitializeComponent();
             dh = new datahelper("Data Source=desktop-2j8o873;Initial Catalog=thoi_khoa_bieu;Integrated Security=True");
+            load_cbb();
         }
-
+        void load_cbb()
+        {
+            string cmd1 = "select tenNhom from nhom";
+            foreach (string s in dh.getlist(cmd1))
+            {
+                f8_nhom_ccb.FindStringExact(s);
+            }
+            string cmd2 = "select TenMon from mon";
+            foreach (string s in dh.getlist(cmd2))
+            {
+                f8_mon_cbb.FindStringExact(s);
+            }
+            string cmd3 = "select TeacherName from teacher";
+            foreach (string s in dh.getlist(cmd3))
+            {
+                f8_giangvien_cbb.FindStringExact(s);
+            }
+        }
         private void f8_show_bt_Click(object sender, EventArgs e)
         {
             string cmd = "";

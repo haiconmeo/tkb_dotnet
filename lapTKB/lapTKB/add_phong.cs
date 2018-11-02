@@ -25,7 +25,7 @@ namespace lapTKB
         }
         private void f7_show_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "select 8 from phong";
+            string cmd = "select * from phong";
             dataGridView1.DataSource= dh.getTable(cmd);
         }
 
@@ -38,14 +38,23 @@ namespace lapTKB
 
         private void f7_delete_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "delete from nhom where ='"+dataGridView1.SelectedRows[0].Cells["phongID"].Value.ToString()+"'";
+            string cmd = "delete from phong where PhongID='" + dataGridView1.SelectedRows[0].Cells["phongID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
+            show();
         }
 
         private void f7_update_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "update nhom set tenPhong ='"+f7_name_tb.Text+"',quanly='"+f7_quanly_tb.Text+"',std='"+f7_sdt_tb.Text+"'";
+            string cmd = "update phong set tenPhong ='" + f7_name_tb.Text+"',quanly='"+f7_quanly_tb.Text+"',std='"+f7_sdt_tb.Text+"' where PhongID ='"+dataGridView1.SelectedRows[0].Cells["PhongID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
+            show();
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            f7_name_tb.Text = dataGridView1.SelectedRows[0].Cells["TenPhong"].Value.ToString();
+            f7_quanly_tb.Text = dataGridView1.SelectedRows[0].Cells["quanly"].Value.ToString();
+            f7_sdt_tb.Text = dataGridView1.SelectedRows[0].Cells["std"].Value.ToString();
         }
     }
 }

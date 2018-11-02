@@ -23,9 +23,10 @@ namespace lapTKB
 
         private void fnhom_add_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "insert into nhom(tenNhom,khoa,mail,chuNhiem) values ('" + fnhom_name_tb.Text + "','" + fnhom_khoa_tb.Text + "'"+fnhom_mail_tb.Text+"'"+fnhom_chunhiem_tb.Text+"'"+")";
+            string cmd = "insert into nhom(tenNhom,khoa,mail,chuNhiem) values ('" + fnhom_name_tb.Text + "','" + fnhom_khoa_tb.Text + "','"+fnhom_mail_tb.Text+"','"+fnhom_chunhiem_tb.Text+"'"+")";
             dh.exuteNonQuery(cmd);
             x();
+            this.Close();
         }
 
         private void fnhom_cancel_bt_Click(object sender, EventArgs e)

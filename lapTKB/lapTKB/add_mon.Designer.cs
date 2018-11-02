@@ -30,9 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.f6_tenmon_tb = new System.Windows.Forms.TextBox();
+            this.f6_sotiet_tb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.f6_show_bt = new System.Windows.Forms.Button();
             this.f6_add_bt = new System.Windows.Forms.Button();
@@ -59,28 +58,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Số tiết";
             // 
-            // label3
+            // f6_tenmon_tb
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "số tín chỉ";
+            this.f6_tenmon_tb.Location = new System.Drawing.Point(145, 49);
+            this.f6_tenmon_tb.Name = "f6_tenmon_tb";
+            this.f6_tenmon_tb.Size = new System.Drawing.Size(142, 20);
+            this.f6_tenmon_tb.TabIndex = 3;
             // 
-            // textBox1
+            // f6_sotiet_tb
             // 
-            this.textBox1.Location = new System.Drawing.Point(145, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(145, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 20);
-            this.textBox2.TabIndex = 4;
+            this.f6_sotiet_tb.Location = new System.Drawing.Point(145, 112);
+            this.f6_sotiet_tb.Name = "f6_sotiet_tb";
+            this.f6_sotiet_tb.Size = new System.Drawing.Size(142, 20);
+            this.f6_sotiet_tb.TabIndex = 4;
             // 
             // dataGridView1
             // 
@@ -89,6 +79,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(567, 150);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // f6_show_bt
             // 
@@ -140,9 +131,8 @@
             this.Controls.Add(this.f6_add_bt);
             this.Controls.Add(this.f6_show_bt);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.f6_sotiet_tb);
+            this.Controls.Add(this.f6_tenmon_tb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "add_mon";
@@ -157,9 +147,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox f6_tenmon_tb;
+        private System.Windows.Forms.TextBox f6_sotiet_tb;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button f6_show_bt;
         private System.Windows.Forms.Button f6_add_bt;

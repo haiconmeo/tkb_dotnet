@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fnhom_name_tb = new System.Windows.Forms.TextBox();
-            this.fnhom_quanly_tb = new System.Windows.Forms.TextBox();
-            this.fnhom_sdt_t = new System.Windows.Forms.TextBox();
+            this.fphong_name_tb = new System.Windows.Forms.TextBox();
+            this.fphong_quanly_tb = new System.Windows.Forms.TextBox();
+            this.fphong_sdt_t = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,26 +38,26 @@
             this.fphong_cancel_bt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // fnhom_name_tb
+            // fphong_name_tb
             // 
-            this.fnhom_name_tb.Location = new System.Drawing.Point(118, 58);
-            this.fnhom_name_tb.Name = "fnhom_name_tb";
-            this.fnhom_name_tb.Size = new System.Drawing.Size(215, 20);
-            this.fnhom_name_tb.TabIndex = 0;
+            this.fphong_name_tb.Location = new System.Drawing.Point(118, 58);
+            this.fphong_name_tb.Name = "fphong_name_tb";
+            this.fphong_name_tb.Size = new System.Drawing.Size(215, 20);
+            this.fphong_name_tb.TabIndex = 0;
             // 
-            // fnhom_quanly_tb
+            // fphong_quanly_tb
             // 
-            this.fnhom_quanly_tb.Location = new System.Drawing.Point(118, 147);
-            this.fnhom_quanly_tb.Name = "fnhom_quanly_tb";
-            this.fnhom_quanly_tb.Size = new System.Drawing.Size(215, 20);
-            this.fnhom_quanly_tb.TabIndex = 1;
+            this.fphong_quanly_tb.Location = new System.Drawing.Point(118, 147);
+            this.fphong_quanly_tb.Name = "fphong_quanly_tb";
+            this.fphong_quanly_tb.Size = new System.Drawing.Size(215, 20);
+            this.fphong_quanly_tb.TabIndex = 1;
             // 
-            // fnhom_sdt_t
+            // fphong_sdt_t
             // 
-            this.fnhom_sdt_t.Location = new System.Drawing.Point(504, 58);
-            this.fnhom_sdt_t.Name = "fnhom_sdt_t";
-            this.fnhom_sdt_t.Size = new System.Drawing.Size(210, 20);
-            this.fnhom_sdt_t.TabIndex = 2;
+            this.fphong_sdt_t.Location = new System.Drawing.Point(504, 58);
+            this.fphong_sdt_t.Name = "fphong_sdt_t";
+            this.fphong_sdt_t.Size = new System.Drawing.Size(210, 20);
+            this.fphong_sdt_t.TabIndex = 2;
             // 
             // label1
             // 
@@ -116,9 +116,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.fnhom_sdt_t);
-            this.Controls.Add(this.fnhom_quanly_tb);
-            this.Controls.Add(this.fnhom_name_tb);
+            this.Controls.Add(this.fphong_sdt_t);
+            this.Controls.Add(this.fphong_quanly_tb);
+            this.Controls.Add(this.fphong_name_tb);
             this.Name = "add_phong_2";
             this.Text = "add_phong_2";
             this.ResumeLayout(false);
@@ -128,9 +128,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox fnhom_name_tb;
-        private System.Windows.Forms.TextBox fnhom_quanly_tb;
-        private System.Windows.Forms.TextBox fnhom_sdt_t;
+        private System.Windows.Forms.TextBox fphong_name_tb;
+        private System.Windows.Forms.TextBox fphong_quanly_tb;
+        private System.Windows.Forms.TextBox fphong_sdt_t;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

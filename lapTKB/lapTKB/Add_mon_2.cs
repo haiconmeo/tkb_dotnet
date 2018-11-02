@@ -23,9 +23,10 @@ namespace lapTKB
 
         private void fmon_add_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "insert into mon(TenMon,sotiet) values ('"+fmon_name_tb+"','"+fmon_sotiet_tb+"')";
+            string cmd = "insert into mon(TenMon,sotiet) values ('"+fmon_name_tb.Text+"','"+fmon_sotiet_tb.Text+"')";
             dh.exuteNonQuery(cmd);
             x();
+            this.Close();
         }
 
         private void fmon_cancel_bt_Click(object sender, EventArgs e)

@@ -34,19 +34,27 @@ namespace lapTKB
         {
             string cmd = "delete from mon where monID ='"+dataGridView1.SelectedRows[0].Cells["monID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
+            show();
         }
 
         private void f6_update_bt_Click(object sender, EventArgs e)
         {
-            string cmd = "update mon set TenMon='"+textBox1.Text+"',sotiet='"+textBox2.Text+"'where monID='"+dataGridView1.SelectedRows[0].Cells["monID"].Value.ToString()+"'";
+            string cmd = "update mon set TenMon='"+f6_tenmon_tb.Text+"',sotiet='"+f6_sotiet_tb.Text+"'where monID='"+dataGridView1.SelectedRows[0].Cells["monID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
+            show();
         }
 
         private void f6_add_bt_Click(object sender, EventArgs e)
         {
-            add_gv_2 f = new add_gv_2();
+            Add_mon_2 f = new Add_mon_2();
             f.Show();
             f.x = show;
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            f6_tenmon_tb.Text = dataGridView1.SelectedRows[0].Cells["TenMon"].Value.ToString();
+            f6_sotiet_tb.Text = dataGridView1.SelectedRows[0].Cells["sotiet"].Value.ToString();
         }
     }
 }

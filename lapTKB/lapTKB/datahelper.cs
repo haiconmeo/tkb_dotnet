@@ -14,6 +14,21 @@ namespace lapTKB
         {
             cnn = new SqlConnection(s);
         }
+        public List<string> getlist(string query)
+        {
+            List<string> li = new List<string>();
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(query, this.cnn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string hazz = reader.GetString(0);
+                li.Add(hazz);
+            }
+            cnn.Close();
+            return li;
+        }
         public DataTable getTable(string cmd)
         {
             DataTable db = new DataTable();
