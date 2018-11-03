@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 namespace lapTKB
 {
     class datahelper
@@ -13,6 +14,22 @@ namespace lapTKB
         public datahelper(string s)
         {
             cnn = new SqlConnection(s);
+        }
+        public int get_ms(string s)
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(s, this.cnn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            int a=0;
+            while (reader.Read())
+                //MessageBox.Show(reader.GetInt32(0).ToString());
+                a = reader.GetInt32(0);
+            //MessageBox.Show(a);
+            cnn.Close();
+            return a;
+            
+
         }
         public List<string> getlist(string query)
         {
