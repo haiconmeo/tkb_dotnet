@@ -15,6 +15,7 @@ namespace lapTKB
         {
             cnn = new SqlConnection(s);
         }
+
         public int get_ms(string s)
         {
             cnn.Open();
@@ -41,6 +42,21 @@ namespace lapTKB
             while (reader.Read())
             {
                 string hazz = reader.GetString(0);
+                li.Add(hazz);
+            }
+            cnn.Close();
+            return li;
+        }
+        public List<int> _getlist(string query)
+        {
+            List<int> li = new List<int>();
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(query, this.cnn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int hazz = reader.GetInt32(0);
                 li.Add(hazz);
             }
             cnn.Close();

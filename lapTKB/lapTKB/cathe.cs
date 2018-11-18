@@ -6,172 +6,251 @@ using System.Threading.Tasks;
 
 namespace lapTKB
 {
-    class cathe
+    public class cathe
     {
-        public int soGV;
-        public int  soPhong;
-        public int [,] tkb;
-        public int rank;
-        public List<int> E;
-        public cathe(int sp,int gv)
-        {
-            soGV = gv;
-            soPhong = sp;
-            for(int i = 0; i < 10; i++)
+        
+        
+            public List<int> phancong;
+            public List<int> gv;
+            public int soQH;
+            public int soGV;
+            public int soPhong;
+            public int[,] tkb;
+            public int rank;
+            public List<int> E;
+            public List<int> gv2;
+            public bool kt(int x, List<int> a)
             {
-                for (int j=0;j< soPhong; j++)
+                foreach (int i in a)
                 {
-                    Random rd = new Random();
-                    int e = E[rd.Next(E.Count)];
-                    tkb[i,j] = e;
-                    E.Remove(e);
-
+                    if (i == x) return false;
                 }
+                return true;
             }
-            rank = dk_gvday2lop() + dk_tansuatsudungphong();
-        }
-        bool in_con(int c, int[,] a)
-        {
-            for (int i = 0; i < 4; i++)
+            public cathe(int sp, int sogv, int sqh, List<int> _phancong, List<int> _gv)
             {
-                for (int j = 0; j < 4; j++)
+
+
+                this.phancong = new List<int>();
+                this.phancong.AddRange(_phancong);
+                this.gv = new List<int>();
+                this.gv2 = new List<int>();
+                this.gv.AddRange(_gv);
+                foreach (int i in gv)
                 {
-                    if (a[i, j] == c)
+                    if (kt(i, gv2)) this.gv2.Add(i);
+                }
+                soQH = sqh;
+                soGV = sogv;
+                soPhong = sp;
+                this.tkb = new int[10, soPhong];
+                E = new List<int>();
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < soPhong; j++) tkb[i, j] = -1;
+                }
+                for (int i = 0; i < 10 * soPhong; i++)
+                {
+                    E.Add(i);
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < soPhong; j++)
                     {
-                        return false;
+                        Random rd = new Random();
+                        int e = E[rd.Next(E.Count)];
+                        tkb[i, j] = e;
+                        E.Remove(e);
+
                     }
                 }
+                rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
             }
-            return true;
-        }
-        int [,] copymang(int [,] a,int n,int m)
-        {
-            int[,] b = new int[n, m];
-            for (int i=0;i<n;i++)
-                for(int j = 0; j < m; j++)
-                {
-                    b[i, j] = a[i, j];
-                }
-            return b;
-        }
-        public cathe(cathe cha,cathe me)
-        {
-            soGV = cha.soGV;
-            soPhong = cha.soPhong;
-            int[,] tkbc = new int [10,soPhong];
-            int [,]tkbm = new int[10, soPhong];
-            tkbc = copymang(cha.tkb, 10, soPhong);
-            tkbm = copymang(me.tkb, 10, soPhong);
-
-            for (int i = 0; i < 10; i++)
+            bool in_con(int c, int[,] a)
             {
-                for (int j=0; j < this.soPhong; j++)
+                for (int i = 0; i < 4; i++)
                 {
-                    this.tkb[i,j] = -1;
-                }
-            }
-            Random rd = new Random();
-            int[,] m = new int [10,cha.soPhong];
-            for (int i = 0; i < 10; i++)
-                for (int j = 0; j < cha.soPhong; j++)
-                {
-                    m[i, j] = rd.Next(1);
-                }
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < cha.soPhong; j++)
-                {
-                    bool co = false;
-                    if (m[i,j] == 0)
-                    {// lay a
-
-                        for (int k = 0; k < 4; k++)
-                        {
-                            for (int l = 0; l < 4; l++)
-                            {
-                                if ((tkbc[k,l] != -1) && in_con(tkbc[k,l],this.tkb))
-                                {
-                                    this.tkb[i,j] = tkbc[k,l];
-                                    co = true;
-                                    tkbc[k,l] = -1;
-                                    break;
-                                }
-                            }
-                            if (co) break;
-                        }
-                    }
-                    else
+                    for (int j = 0; j < 4; j++)
                     {
-                        for (int k = 0; k < 10; k++)
+                        if (a[i, j] == c)
                         {
-                            for (int l = 0; l < this.soPhong; l++)
-                            {
-                                if ((tkbm[k,l] != -1) && in_con(tkbm[k,l],this.tkb))
-                                {
-                                    this.tkb[i,j] = tkbm[k,l];
-                                    co = true;
-                                    tkbm[k,l] = -1;
-                                    break;
-                                }
-                            }
-                            if (co) break;
+                            return false;
                         }
                     }
                 }
+                return true;
             }
-            this.rank = dk_gvday2lop() + dk_tansuatsudungphong();
-        }
-        public cathe(cathe a, int v1,int v2,int v3,int v4)
-        {
-            soGV = a.soGV;
-            soPhong = a.soPhong;
-            int[,] tkbc = new int[10, soPhong];
-            
-            tkbc = copymang(a.tkb, 10, soPhong);
-            
-            tkbc[v1, v3] = tkbc[v2, v4];
-            this.tkb = tkbc;
-            this.rank = dk_gvday2lop() + dk_tansuatsudungphong();
-        }
-        public int dk_tansuatsudungphong()
-        {
-            int[] ts = new int[soPhong];
-            for (int i = 0; i < soPhong; i++) { ts[i] = 0; }
-            for (int i = 0; i < 10; i++)
+            int[,] copymang(int[,] a, int n, int m)
             {
-                for (int j = 0; j < soPhong; j++) { if (tkb[i, j] != -1) ts[j]++; }
+                int[,] b = new int[n, m];
+                for (int i = 0; i < n; i++)
+                    for (int j = 0; j < m; j++)
+                    {
+                        b[i, j] = a[i, j];
+                    }
+                return b;
             }
-            Array.Sort(ts);
-            return ts[soPhong - 1];
-
-        }
-        public int get_gv(int e)
-        {
-            return 1;
-        }
-        public int dk_gvday2lop()
-        {
-
-            int dem = 0;
-            for (int i = 0; i < 10; i++)
+            public cathe(cathe cha, cathe me)
             {
-                int[] gv = new int[soGV];
-                for (int k = 0; k < soPhong; k++) { gv[i] = 0; }
-                for (int j = 0; j < soPhong; j++) {
-                    if (gv[get_gv(tkb[i, j])] == 0)
-                        gv[get_gv(tkb[i, j])]++;
-                    else
-                        dem++;
+                soGV = cha.soGV;
+                soPhong = cha.soPhong;
+                soQH = cha.soQH;
+                int[,] tkbc = new int[10, soPhong];
+                int[,] tkbm = new int[10, soPhong];
+                tkbc = copymang(cha.tkb, 10, soPhong);
+                tkbm = copymang(me.tkb, 10, soPhong);
+                this.tkb = new int[10, soPhong];
+                this.gv2 = new List<int>();
+                this.gv = new List<int>();
+                gv.AddRange(cha.gv);
+                foreach (int i in gv)
+                {
+                    if (kt(i, gv2)) this.gv2.Add(i);
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < this.soPhong; j++)
+                    {
+                        this.tkb[i, j] = -1;
+                    }
+                }
+                Random rd = new Random();
+                int[,] m = new int[10, cha.soPhong];
+                for (int i = 0; i < 10; i++)
+                    for (int j = 0; j < cha.soPhong; j++)
+                    {
+                        m[i, j] = rd.Next(1);
+                    }
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < cha.soPhong; j++)
+                    {
+                        bool co = false;
+                        if (m[i, j] == 0)
+                        {// lay a
+
+                            for (int k = 0; k < 10; k++)
+                            {
+                                for (int l = 0; l < soPhong; l++)
+                                {
+                                    if ((tkbc[k, l] != -1) && in_con(tkbc[k, l], this.tkb))
+                                    {
+                                        this.tkb[i, j] = tkbc[k, l];
+                                        co = true;
+                                        tkbc[k, l] = -1;
+                                        break;
+                                    }
+                                }
+                                if (co) break;
+                            }
+                        }
+                        else
+                        {
+                            for (int k = 0; k < 10; k++)
+                            {
+                                for (int l = 0; l < this.soPhong; l++)
+                                {
+                                    if ((tkbm[k, l] != -1) && in_con(tkbm[k, l], this.tkb))
+                                    {
+                                        this.tkb[i, j] = tkbm[k, l];
+                                        co = true;
+                                        tkbm[k, l] = -1;
+                                        break;
+                                    }
+                                }
+                                if (co) break;
+                            }
+                        }
+                    }
+                }
+                this.rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
+            }
+            public cathe(cathe a, int v1, int v2, int v3, int v4)
+            {
+                soGV = a.soGV;
+                soPhong = a.soPhong;
+                soQH = a.soQH;
+                this.gv2 = new List<int>();
+                this.gv = new List<int>();
+                gv.AddRange(a.gv);
+                foreach (int i in gv)
+                {
+                    if (kt(i, gv2)) this.gv2.Add(i);
+                }
+                int[,] tkbc = new int[10, soPhong];
+
+                tkbc = copymang(a.tkb, 10, soPhong);
+
+                tkbc[v1, v3] = tkbc[v2, v4];
+                this.tkb = tkbc;
+                this.rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
+            }
+            public int dk_tansuatsudungphong()
+            {
+                int[] ts = new int[soPhong];
+                for (int i = 0; i < soPhong; i++) { ts[i] = 0; }
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < soPhong; j++) { if (tkb[i, j] < this.soQH) ts[j]++; }
+                }
+                Array.Sort(ts);
+                return ts[soPhong - 1];
+
+            }
+            public int get_gv(int e, List<int> gv)
+            {
+                //string cmd = "select TeacherID from phancong where phancongID='" + e + "'";
+                if (e >= soQH || e== -1)
+                {
+                    return -1;
+                }
+                return gv[e];
+
+            }
+        
+            public int dk_gvday2lop(List<int> gv2, List<int> gv)
+            {
+                int dem = 0;
+                for (int k = 0; k < this.gv2.Count; k++)
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        int c = 0;
+                        for (int j = 0; j < soPhong; j++)
+                        {
+                            if (get_gv(tkb[i, j], gv) == gv2[k])
+                            {
+                                c = c + 1;
+
+                            }
+
+                        }
+                        if (c > 1) dem = dem + (c - 1);
+                        //if (dem >= 1) return 10;
+                    }
+                //return dem;
+                }
+
+                return dem;
+            }
+            
+            public void in_ra()
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < soPhong; j++)
+                    {
+                        Console.Write("{0}  ", tkb[i, j]);
+                    }
+                    Console.WriteLine();
                 }
             }
-            
-            return dem;
+
+
+
+
+
         }
-        
-        
-        
-
-
-
     }
-}
+
+    

@@ -68,7 +68,14 @@ namespace lapTKB
                 "INNER JOIN mon ON phancong.MonID = mon.MonID); ";
             dataGridView1.DataSource = dh.getTable(cmd);
         }
-
+        void show()
+        {
+            string cmd = "SELECT phancong.phancongID,teacher.TeacherName, mon.tenmon, nhom.tennhom FROM(((phancong " +
+               "INNER JOIN teacher ON phancong.teacherID = teacher.teacherID) " +
+               "INNER JOIN nhom ON phancong.nhomID = nhom.nhomID) " +
+               "INNER JOIN mon ON phancong.MonID = mon.MonID); ";
+            dataGridView1.DataSource = dh.getTable(cmd);
+        }
         private void f8_add_bt_Click(object sender, EventArgs e)
         {
             //try
@@ -76,6 +83,7 @@ namespace lapTKB
                 string cmd = "insert into phancong(teacherID,MonID,nhomID) values ('"+ms_gv(f8_giangvien_cbb.Text)+"','"+ms_mon(f8_mon_cbb.Text)+"','"+ms_nhom(f8_nhom_ccb.Text)+"')";
                 MessageBox.Show(cmd);
                 dh.exuteNonQuery(cmd);
+            show();
             //}*/
             /*
             catch
@@ -88,6 +96,7 @@ namespace lapTKB
         {
             string cmd = "delete from phancong where phancongID='"+dataGridView1.SelectedRows[0].Cells["phancongID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
+            show();
         }
     }
 }
