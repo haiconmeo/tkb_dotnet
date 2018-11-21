@@ -29,7 +29,7 @@ namespace lapTKB
             this.soGV = sgv;
             this.ct = new List<cathe>();
             this.soluong = 100;
-            this.tyledotbien = 3;
+            this.tyledotbien = 10;
             this.tylelaighep = 80;
         }
         public void khoitao()
@@ -74,9 +74,9 @@ namespace lapTKB
         public int[,]  loc()
         {
             khoitao();
-            int min = 10000;
+            double min = 10000;
             int vt = 0;
-            while (ct[vt].rank >3 )
+            while (ct[vt].rank >0.2 )
             {
                 laighep();
                 dotbien();

@@ -38,3 +38,5 @@ D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.csproj.GenerateResource.cache
 D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.csproj.CoreCompileInputs.cache
 D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.exe
 D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.pdb
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.sort.resources
+D:\tkb_dotnet\lapTKB\lapTKB\obj\Debug\lapTKB.search.resources

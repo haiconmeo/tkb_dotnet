@@ -49,6 +49,8 @@ namespace lapTKB
 
         private void f2_delete_bt_Click(object sender, EventArgs e)
         {
+            string cmd2 = "DELETE FROM [dbo].[tkb]";
+            dh.exuteNonQuery(cmd2);
             string cmd1 = "delete from phancong where TeacherID='" + mssv + "'";
             dh.exuteNonQuery(cmd1);
             string cmd = "delete from teacher where TeacherID ='"+mssv+"'";

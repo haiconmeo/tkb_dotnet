@@ -16,7 +16,7 @@ namespace lapTKB
             public int soGV;
             public int soPhong;
             public int[,] tkb;
-            public int rank;
+            public double rank;
             public List<int> E;
             public List<int> gv2;
             public bool kt(int x, List<int> a)
@@ -36,7 +36,17 @@ namespace lapTKB
                 this.gv = new List<int>();
                 this.gv2 = new List<int>();
                 this.gv.AddRange(_gv);
-                foreach (int i in gv)
+            List<int> p = new List<int>();
+            for (int i = 0; i < soPhong; i++)
+            {
+                p.Add(i);
+            }
+            List<int> t = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                t.Add(i);
+            }
+            foreach (int i in gv)
                 {
                     if (kt(i, gv2)) this.gv2.Add(i);
                 }
@@ -53,24 +63,32 @@ namespace lapTKB
                 {
                     E.Add(i);
                 }
-                for (int i = 0; i < 10; i++)
+            Random rd = new Random();
+            for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < soPhong; j++)
                     {
-                        Random rd = new Random();
-                        int e = E[rd.Next(E.Count)];
-                        tkb[i, j] = e;
-                        E.Remove(e);
-
-                    }
+                        
+                    
+                    
+                   // int tam1 = p[rd1.Next(p.Count)];
+                    //int tam2 = t[rd0.Next(t.Count)];
+                    int e = E[rd.Next(E.Count)];
+                    tkb[i, j] = e;
+                    E.Remove(e);
+                    //p.Remove(tam1);
+                    //t.Remove(tam2);
+                    
                 }
-                rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
+                }
+                
+                rank = 0.1*dk_gvday2lop(gv2, gv) + 0.5*dk_tansuatsudungphong();
             }
             bool in_con(int c, int[,] a)
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    for (int j = 0; j < 4; j++)
+                    for (int j = 0; j < soPhong; j++)
                     {
                         if (a[i, j] == c)
                         {
@@ -163,8 +181,8 @@ namespace lapTKB
                         }
                     }
                 }
-                this.rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
-            }
+            rank = 0.1 * dk_gvday2lop(gv2, gv) + 0.5 * dk_tansuatsudungphong();
+        }
             public cathe(cathe a, int v1, int v2, int v3, int v4)
             {
                 soGV = a.soGV;
@@ -180,11 +198,11 @@ namespace lapTKB
                 int[,] tkbc = new int[10, soPhong];
 
                 tkbc = copymang(a.tkb, 10, soPhong);
-
+                
                 tkbc[v1, v3] = tkbc[v2, v4];
                 this.tkb = tkbc;
-                this.rank = dk_gvday2lop(gv2, gv) + dk_tansuatsudungphong();
-            }
+            rank = 0.1 * dk_gvday2lop(gv2, gv) + 0.5 * dk_tansuatsudungphong();
+        }
             public int dk_tansuatsudungphong()
             {
                 int[] ts = new int[soPhong];
@@ -194,7 +212,8 @@ namespace lapTKB
                     for (int j = 0; j < soPhong; j++) { if (tkb[i, j] < this.soQH) ts[j]++; }
                 }
                 Array.Sort(ts);
-                return ts[soPhong - 1];
+            // return ts[soPhong - 1];
+            return 0;
 
             }
             public int get_gv(int e, List<int> gv)

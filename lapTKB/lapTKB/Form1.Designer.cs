@@ -73,6 +73,7 @@
             this.f1_sort_b.Size = new System.Drawing.Size(56, 43);
             this.f1_sort_b.TabIndex = 2;
             this.f1_sort_b.UseVisualStyleBackColor = true;
+            this.f1_sort_b.Click += new System.EventHandler(this.f1_sort_b_Click);
             // 
             // f1_search_b
             // 
@@ -83,6 +84,7 @@
             this.f1_search_b.Size = new System.Drawing.Size(51, 43);
             this.f1_search_b.TabIndex = 3;
             this.f1_search_b.UseVisualStyleBackColor = true;
+            this.f1_search_b.Click += new System.EventHandler(this.f1_search_b_Click);
             // 
             // dataGridView1
             // 

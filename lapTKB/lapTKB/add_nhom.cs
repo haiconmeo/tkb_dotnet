@@ -30,6 +30,8 @@ namespace lapTKB
 
         private void f5_delete_bt_Click(object sender, EventArgs e)
         {
+            string cmd2 = "DELETE FROM [dbo].[tkb]";
+            dh.exuteNonQuery(cmd2);
             string cmd1 = "delete from phancong where nhomID='" + dataGridView1.SelectedRows[0].Cells["nhomID"].Value.ToString() + "'";
             string cmd = "delete from nhom where  nhomID='" + dataGridView1.SelectedRows[0].Cells["nhomID"].Value.ToString()+"'";
             dh.exuteNonQuery(cmd);
