@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace lapTKB
 {
     public class cathe
@@ -22,11 +22,26 @@ namespace lapTKB
             public bool kt(int x, List<int> a)
             {
                 foreach (int i in a)
-                {
+                { 
                     if (i == x) return false;
                 }
                 return true;
             }
+        public cathe(cathe c)
+        {
+            this.phancong= c.phancong;
+            this.gv= c.gv;
+            this.soQH=c.soQH;
+            this.soGV=c.soGV;
+            this.soPhong=c.soPhong;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < soPhong; j++) this.tkb[i, j] = c.tkb[i,j];
+            }
+            this.rank= c.rank;
+           this.E= c.E;
+            this.gv2= c.gv2;
+    }
             public cathe(int sp, int sogv, int sqh, List<int> _phancong, List<int> _gv)
             {
 
@@ -110,6 +125,7 @@ namespace lapTKB
             }
             public cathe(cathe cha, cathe me)
             {
+            
                 soGV = cha.soGV;
                 soPhong = cha.soPhong;
                 soQH = cha.soQH;
@@ -185,7 +201,8 @@ namespace lapTKB
         }
             public cathe(cathe a, int v1, int v2, int v3, int v4)
             {
-                soGV = a.soGV;
+            //MessageBox.Show("dang chich");
+            soGV = a.soGV;
                 soPhong = a.soPhong;
                 soQH = a.soQH;
                 this.gv2 = new List<int>();
@@ -198,9 +215,10 @@ namespace lapTKB
                 int[,] tkbc = new int[10, soPhong];
 
                 tkbc = copymang(a.tkb, 10, soPhong);
-                
+            int tam = tkbc[v1, v3];
                 tkbc[v1, v3] = tkbc[v2, v4];
-                this.tkb = tkbc;
+            tkbc[v2, v4] = tam;
+            this.tkb = copymang(tkbc, 10, soPhong);
             rank = 0.1 * dk_gvday2lop(gv2, gv) + 0.5 * dk_tansuatsudungphong();
         }
             public int dk_tansuatsudungphong()

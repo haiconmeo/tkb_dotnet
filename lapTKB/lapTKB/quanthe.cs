@@ -28,9 +28,9 @@ namespace lapTKB
             this.soPhong = sp;
             this.soGV = sgv;
             this.ct = new List<cathe>();
-            this.soluong = 100;
+            this.soluong = 200;
             this.tyledotbien = 10;
-            this.tylelaighep = 80;
+            this.tylelaighep = 50;
         }
         public void khoitao()
         {
@@ -43,13 +43,17 @@ namespace lapTKB
         }
         public void laighep()
         {
+          //  MessageBox.Show("tao chay roi nha");
             int i = 0;
             int n = this.soluong;
             while (i < n * this.tylelaighep / 100)
             {
                 cathe c = new cathe(ct[i], ct[i + 1]);
-                ct.Add(c);
-                soluong++;
+                if (c.rank <= 0.4) {
+                    ct.Add(c);
+                    soluong++;
+                    
+                }
                 i++;
             }
 
@@ -67,31 +71,60 @@ namespace lapTKB
                 int vt3 = rd.Next(soPhong);
                 int vt4 = rd.Next(soPhong);
                 cathe c = new cathe(ct[x], vt1, vt2, vt3, vt4);
-                ct.Add(c);
-                this.soluong++;
+                if (c.rank <= 0.4)
+                {
+                    ct.Add(c);
+                    soluong++;
+                    
+                }
             }
         }
         public int[,]  loc()
         {
+            
             khoitao();
-            double min = 10000;
+            MessageBox.Show("khoi tao xong");
+            ct.Sort(delegate (cathe x, cathe y) {
+                return x.rank.CompareTo(y.rank);
+            });
+            //MessageBox.Show(ct[0].rank.ToString());
             int vt = 0;
-            while (ct[vt].rank >0.2 )
+            while (ct[vt].rank >0 )
             {
-                laighep();
                 dotbien();
+                laighep();
+                //Console.WriteLine(soluong);
+                //MessageBox.Show("hazz");
+                // sap xep quan the
 
 
-                for (int i = 0; i < soluong; i++)
+                /*for (int i = 0; i < soluong - 1; i++)
                 {
-                    if (min > ct[i].rank)
-                    {
-                        vt = i;
-                        min = ct[i].rank;
-                    }
+                    for (int j = 0; j < soluong ; j++)
+                        if (ct[i].rank < ct[j].rank)
+                        {
+                            cathe c = ct[i];
+                            ct[i] = ct[j];
+                            ct[j] = c;
+                        }
+                }*/
+               // Console.WriteLine(soluong);
+                // loai bo ca the chi de so luong o muc 200
+                ct.Sort(delegate (cathe x, cathe y) {
+                    return x.rank.CompareTo(y.rank);
+                });
+                //MessageBox.Show(ct[0].rank.ToString());
+                int i = 200;
+                while(soluong > 200)
+                {
+                    //MessageBox.Show("dmm");
+                    ct.Remove(ct[i]);
+                    soluong--;
                 }
+               
             }
             MessageBox.Show(ct[vt].rank.ToString());
+            MessageBox.Show(this.soluong.ToString());
             return ct[vt].tkb;
         }
 
